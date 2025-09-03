@@ -18,10 +18,10 @@ snack = snack.Snake()
 food = food.Food()
 score = score.Score()
 
-s.onkey(key='w', fun=snack.up)
-s.onkey(key='s', fun=snack.down)
-s.onkey(key='a', fun=snack.left)
-s.onkey(key='d', fun=snack.right)
+s.onkey(key='Up', fun=snack.up)
+s.onkey(key='Down', fun=snack.down)
+s.onkey(key='Left', fun=snack.left)
+s.onkey(key='Right', fun=snack.right)
 
 game = True
 while game:
@@ -31,16 +31,19 @@ while game:
 
     #collision with wall
     if snack.head.xcor() > 280 or snack.head.ycor() < -280 or snack.head.ycor() > 280 or snack.head.xcor() < -280:
-        game = False
-        score.game_over()
+        # game = False
+        # score.game_over()
+        score.reset_score()
+        snack.reset()
 
     #collision with tail
     for j in snack.l:
         if j == snack.head:
             pass
         elif snack.head.distance(j) < 10:
-            game = False
-            score.game_over()
+            # game = False
+            # score.game_over()
+            score.reset_score()
 
     #collision with food
     if snack.head.distance(food) < 15:

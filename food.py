@@ -7,7 +7,6 @@ class Food(Turtle):
         super().__init__()
         self.shape("circle")
         self.penup()
-        self.color(choice(colors))
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
         self.speed('fastest')
         self.coordinate()
@@ -16,6 +15,7 @@ class Food(Turtle):
     def coordinate(self):
         x = randint(-260, 260)
         y = randint(-260, 260)
+        self.color(choice(colors))
         self.goto(x, y)
 
 
